@@ -1,0 +1,117 @@
+<html>
+	<head>
+		<title>Santa's List Department</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+		<link rel="stylesheet" href="style.css" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas|Shadows+Into+Light&display=swap" rel="stylesheet">
+
+	</head>
+	<body id="snowfall">
+		<audio autoplay>
+		  <source src="bells.mp3" type="audio/mpeg">
+		</audio>
+
+		<div class="christmas-content">
+			<h1 class="white-txt">Santa's List Department <span id="thisyear"></span></h1>
+			<h3 class="white-txt">There are <span id="countingdays"></span> Days to Christmas!</h3>
+
+			<div class="the-list">
+				<h2 class="red-txt">Santa's Naughty Lists</h2>
+				<div class="list-info">
+					<p>Santa knows when your child has been bad or good but he could use a little help!  To add a name into the naughty list <a href="#addy" class="red-txt">Click Here</a>.</p>
+					<div ng-app="santaNaughtyList" ng-controller="myCtrl">
+						<table>
+							<tr>
+								<th>
+									Full Name
+								</th>
+								<th>
+									Country
+								</th>
+							</tr>
+							<tr ng-repeat="x in nlist">
+								<td>{{x.TheName}}</td>
+								<td>{{x.Country}}</td>
+							</tr>
+						</table>
+
+						<h4>Add a name to the naughty list</h4>
+
+						<div class="naughty-form" id="addy">
+							<input class="input-this" ng-model="addMe.TheName" placeholder="Fullname">
+							<input class="input-this" ng-model="addMe.Country" placeholder="Country">
+							<button ng-click="addItem()" class="btn-classic">Add</button>
+							<p>{{errortext}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			// CHRISTMAS COUNTDOWN
+			var d = new Date();
+			var todayDay = d.getDate();
+			var getDayNum = d.getDay();
+			var todayMonth = d.getMonth() + 1;
+			var todayYear = d.getFullYear();
+			var currentHours = d.getHours();
+			var nowHour = ("0" + currentHours).slice(-2) + ":" + d.getMinutes() +":" + d.getSeconds();
+			var monthlabel = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+			var daylabel = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+			var countDownXmas =  new Date(todayYear, 11, 25);
+			var dayMonth = todayDay + "/" + todayMonth;
+			var now = new Date();
+
+			var todayDate = daylabel[getDayNum] + " " + monthlabel[d.getMonth()] + " " + todayDay + " " + todayYear + " " + nowHour;
+
+			var distance = countDownXmas - now;
+
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+			document.getElementById("thisyear").innerHTML = todayYear;
+			document.getElementById("countingdays").innerHTML = days + 1;
+
+			// THE NAUGHTY LIST
+			var app = angular.module("santaNaughtyList", []);
+			app.controller("myCtrl", function($scope) {
+				$scope.nlist = [
+			        {TheName:"Donald Mills", Country: "USA"},
+			        {TheName:"Kimmy Li", Country: "Hong Kong"},
+			        {TheName:"Ze Tong Wong", Country: "China"},
+			        {TheName:"Gordon Jones", Country: "Canada"},
+			        {TheName:"Tobin Morgan", Country: "Ireland"},
+			        {TheName:"Alex Rapinoe", Country: "Italy"},
+			        {TheName:"Christine Brian", Country: "USA"},
+			        {TheName:"Lucy Trump", Country: "Germany"},
+			        {TheName:"David Kingston", Country: "England"},
+			        {TheName:"William Johnson", Country: "Jamaica"},
+			        {TheName:"Megan Erz", Country: "Netherlands"},
+			        {TheName:"Crystal O'Hara", Country: "USA"},
+			        {TheName:"Kelley Lavelle", Country: "USA"},
+			        {TheName:"Rose Lloyd", Country: "Singapore"},
+			        {TheName:"Carli Press", Country: "South Korea"},
+			        {TheName:"Ben Sharp", Country: "Australia"},
+			        {TheName:"Amy McDonalds", Country: "Canada"},
+			        {TheName:"Zi Xi Wong", Country: "Taiwan"},
+			        {TheName:"April Nelson", Country: "France"}
+			    ];
+
+			    $scope.addItem = function () {
+			        $scope.errortext = "";
+			        if (!$scope.addMe) {return;}
+			        if ($scope.nlist.indexOf($scope.addMe) == -1) {
+			            $scope.nlist.push($scope.addMe);
+			        } else {
+			            $scope.errortext = "This person has already been added into the naughty list.";
+			        }
+			    };
+
+			    $scope.removeItem = function (x) {
+			        $scope.errortext = "";
+			        $scope.nlist.splice(x, 1);
+			    };
+			});
+		</script>
+	</body>
+</html>

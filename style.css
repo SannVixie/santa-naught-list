@@ -1,0 +1,145 @@
+body{
+	padding: 0;
+	margin: 0;
+	background-color: #004ba3!important;
+}
+
+#snowfall{
+	background: none;
+	background-image: url('img/snow1.png'),
+	url('img/snow2.png'), url('img/snow3.png');
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index:1;
+	-webkit-animation: snow 25s ease infinite;
+	-moz-animation: snow 25s ease infinite;
+	-ms-animation: snow 25s ease infinite;
+	animation: snow 25s ease infinite;
+	background-position: center;
+	background-attachment: scroll;
+}
+
+@keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-moz-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 400px 1000px, 200px 400px, 100px 300px;}
+}
+@-webkit-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+@-ms-keyframes snow {
+  0% {background-position: 0px 0px, 0px 0px, 0px 0px;}
+  50% {background-position: 500px 500px, 100px 200px, -100px 150px;}
+  100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
+}
+
+.christmas-content{
+	padding: 2.3rem 1.7rem;
+}
+
+h1{
+	font-family: 'Mountains of Christmas', cursive!important;
+	text-align: center;
+	font-size: 3.3rem!important;
+	letter-spacing: 3px;
+}
+
+h2{
+	font-size: 2.5rem!important;
+	letter-spacing: 3px;
+}
+
+h2, h3, h4{
+	font-family: 'Mountains of Christmas', cursive!important;
+	text-align: center;
+	letter-spacing: 3px;
+}
+
+h3{
+	font-size: 2.2rem!important;
+}
+
+h4{
+	font-size: 1.8rem!important;
+}
+
+.white-txt{
+	color:#fff!important;
+}
+
+.red-txt{
+	color: #953234;
+}
+
+.the-list{
+	background-color: #ffffff;
+	border: 5px dashed #953234;
+	padding: 3.5rem 2.7rem;
+	margin: 0px auto;
+	width: 65%;
+	-webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+}
+
+.list-info{
+	font-size: 1.5rem!important;
+}
+
+table{
+	width: 100%;
+}
+
+table, th , td  {
+	border: 1px solid #953234;
+	border-collapse: collapse;
+	padding: 10px 15px;
+	text-align: center;
+	font-size: 1.5rem!important;
+}
+
+table tr:nth-child(odd) {
+  	background-color: #a7f58e;
+}
+
+table tr:nth-child(even) {
+  	background-color: #ffffff;
+}
+
+.input-this{
+	text-align: center;
+	padding: 5px 15px;
+	border: 2px solid #953234;
+	font-size: 2.3rem!important;
+}
+
+.naughty-form{
+	margin: 0px auto;
+	text-align:center
+}
+
+.btn-classic{
+	background-color: #0a9a25;
+	border: 0!important;
+	color:#fff!important;
+	font-size: 1.7rem!important;
+	padding: 5px 15px;
+}
+
+.btn-classic:hover{
+	cursor: pointer;
+}
+
+a{
+	text-decoration: none;
+}
